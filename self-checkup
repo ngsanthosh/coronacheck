@@ -1,0 +1,125 @@
+#include <stdio.h>
+void traveldetails(int,int,int,int);
+int main(void) {
+  int age,n,temp,symptom,travel,condition;
+  char name[100];
+  //clrscr();
+  //system("cls");
+  system("clear");
+  //printf("********************\n");
+  printf("Hi there,\n\tWelcome to corona virus self assessment test.\n");
+  printf("NOTE: Choose the answers with the options given below when required.\n\n");
+  printf("Please enter your name:");
+  scanf("%[^\n]%*c",name);
+  printf("\nHello ");
+  printf("%s",name);
+  printf("\nHere is an assessment scan.\n");
+  printf("Do answer the questions honestly.\n");
+  printf("So, let us get started!\n");
+  printf("\nHow old are you?\n\nANS:");
+  scanf("%d",&age);
+if(age>12)
+{
+  printf("\nPlease select your gender:\n1.Male\n2.Female\n\nANS:");
+  scanf("%d",&n);
+  if(n!=1&&n!=2)
+  printf("\nPlease provide appropriate answer.\n\nPress \"RUN AGAIN\" option to start from the beginning\n");
+  else
+  {
+  printf("\nPlease let me know your current body temperature in degree farenheit\n");
+  printf("1.Normal(96F-98.6F)\n");
+  printf("2.Fever(98.6F-102F)\n");
+  printf("3.High fever(>102F)\n");
+  printf("4.Not known\n\nANS:");
+  scanf("%d",&temp);
+  if(temp!=1&&temp!=2&&temp!=3&&temp!=4)
+  printf("\nPlease provide appropriate answer.\n\nPress \"RUN AGAIN\" option to start from the beginning\n");
+  else
+  {
+  printf("\nNow please select your travel and exposure details:\n");
+  printf("1.Record of abroad travel in the past 14 days\n");
+  printf("2.No travel record\n\nANS:");
+  scanf("%d",&travel);
+  if(travel!=1&&travel!=2)
+  printf("\nPlease provide appropriate answer.\n\nPress \"RUN AGAIN\" option to start from the beginning\n");
+  else 
+  {
+  printf("\nAre you experiencing any of the symptoms below?\n");
+  printf("1.Dry cough\n");
+  printf("2.Sore throat\n");
+  printf("3.Weakness\n");
+  printf("4.Change in appetite\n");
+  printf("5.Difficulty in breathing\n");
+  printf("6.Drowsiness\n");
+  printf("7.None of these\n\nANS:");
+  scanf("%d",&symptom);
+  if(symptom!=1&&symptom!=2&&symptom!=3&&symptom!=4&&symptom!=5&&symptom!=6&&symptom!=7)
+  printf("\nPlease provide appropriate answer.\n\nPress \"RUN AGAIN\" option to start from the beginning\n");
+  else{
+  printf("\nDo you have any of these conditons?\n");
+  printf("1.Diabetes\n");
+  printf("2.Hypertension\n");
+  printf("3.Heart disease\n");
+  printf("4.Lung disease\n");
+  printf("5.None of these\n\nANS:");
+  scanf("%d",&condition);
+  traveldetails(travel,symptom,condition,temp);
+}
+}
+}
+}
+}
+else
+{
+  printf("\nSorry this assessment test suits only for agers above 12.\n");
+}
+return 0;
+}
+void traveldetails(int travel,int symptom,int condition,int temp)
+{
+  if(travel==2&&temp==1||temp==4||temp==2)
+  {
+    if(symptom==1||symptom==2||symptom==3||symptom==4||symptom==5||symptom==6)
+    {
+      if(condition==1||condition==2||condition==3||condition==4)
+      printf("\nYou are recommended to have a physical test at your nearby hospital.\n");
+      else
+      {
+        printf("\nSince this checkup results positive for one of the corona symptoms in your body, you are recommended to have a physical test at your nearby hospital.\n");
+        printf("\n\nSTAY HOME!\n");
+        printf("STAY SAFE!\n\n");  
+        printf("\nThanks for your time!\n");
+        printf("Programmed by Baruni Priya TS-VCET CSE 1st year.\n\n\n");
+      }
+    }
+    else if(symptom==7)
+    {
+      if(condition==1||condition==2||condition==3||condition==4)
+      {
+        printf("\nExcept this condition, there is no sign of corona symptoms in your body.\nThat's good.You are fine.\n");
+        printf("\n\nSTAY HOME!\n");
+        printf("STAY SAFE!\n\n");  
+        printf("\nThanks for your time!\n");
+        printf("Programmed by Baruni Priya TS-VCET CSE 1st year.\n\n\n");
+      }
+      else
+      {
+        printf("\nThat's good. You are fine and healthy. Your checkup test results negative for the possibility of corona virus in your body.\n");
+        printf("\n\nSTAY HOME!\n");
+        printf("STAY SAFE!\n\n");  
+        printf("\nThanks for your time!\n");
+        printf("Programmed by Baruni Priya TS-VCET CSE 1st year.\n\n\n");
+     }
+   }
+  }
+  else if(travel==1||temp==3)
+  {
+    printf("\nIt seems risky. You are highly recommended to have a physical test at your nearby hospital.\n");
+    printf("\n\nSTAY HOME!\n");
+    printf("STAY SAFE!\n\n");  
+    printf("\nThanks for your time!\n");
+    printf("Programmed by Baruni Priya TS-VCET CSE 1st year.\n\n\n");
+  }
+  else
+  printf("\nPlease provide appropriate answer.\n\nPress \"RUN AGAIN\" option to start from the beginning\n");
+}
